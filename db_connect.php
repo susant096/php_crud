@@ -8,13 +8,10 @@ $dbname = "db_crud";
 // membuat koneksi sederhana menggunakan msqli
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// mengecek koneksi
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// menutup koneksi
-mysqli_close($conn);
 
 
 ?>

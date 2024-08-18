@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center text-primary">Table Daftar</h1>
-        <a href="" class="btn btn-primary">Tambah</a>
+        <a href="tambah.php" class="btn btn-primary">Tambah</a>
         <table class="table">
             <thead>
                 <tr>
