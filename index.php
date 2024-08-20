@@ -8,9 +8,11 @@
 </head>
 <?php
 include 'db_connect.php';
-$query = mysqli_query($conn,"SELECT * FROM users ORDER BY id DESC");
+$query = mysqli_query($conn, "SELECT * FROM users ORDER BY id DESC");
+// $daftars = mysqli_fetch_all($query);
 // print_r($daftars);
 ?>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center text-primary">Table Daftar</h1>
@@ -26,18 +28,20 @@ $query = mysqli_query($conn,"SELECT * FROM users ORDER BY id DESC");
             </thead>
             <tbody>
                 <?php
-               while($daftar = mysqli_fetch_assoc($query)){
+                $i = 1;
+                while ($daftar = mysqli_fetch_assoc($query)) {
                 ?>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><?= $i++ ?></th>
                         <td><?= $daftar['nama'] ?></td>
                         <td><?= $daftar['umur'] ?></td>
                         <td><a href="delete.php?id=<?= $daftar['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a> | <a href="edit.php?id=<?= $daftar['id'] ?>">Edit</a></td>
                     </tr>
                 <?php
                 }
-                ?>    
+                ?>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
